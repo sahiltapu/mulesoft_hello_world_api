@@ -124,26 +124,15 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\hello_world:hello_world-config">
-        <flow-ref doc:name="Flow Reference" doc:id="3b395bd8-8048-4e9a-84f5-d3691d8199cb" name="db_connectSub_Flow"/>
-		<!-- [STUDIO:"Transform Message"]<ee:transform doc:name="Transform Message" doc:id="73a78699-62a1-451f-addd-a8ca22a5bc35" >
-			<ee:message >
-			</ee:message>
-			<ee:variables >
-				<ee:set-variable variableName="full_name" ><![CDATA[%dw 2.0
-output application/json encoding="UTF-8"
-&#45;&#45;-
-payload."first_name" ++ " " ++ payload."last_name"&#93;&#93;></ee:set-variable>
-			</ee:variables>
-		</ee:transform> [STUDIO] -->
-		<!-- [STUDIO:"Transform Message"]<ee:transform doc:name="Transform Message">
+        <ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
+---
 {
-  message: "Hello " ++ vars.full_name
-} as Object {encoding: "UTF-8", mediaType: "application/json"}&#93;&#93;></ee:set-payload>
+  message: "Hello World"
+} as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
             </ee:message>
-        </ee:transform> [STUDIO] -->
+        </ee:transform>
     </flow>
 </mule>
